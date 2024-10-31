@@ -1,0 +1,19 @@
+DROP DATABASE IF EXISTS inmobiliaria;
+CREATE DATABASE IF NOT EXISTS inmobiliaria;
+USE inmobiliaria
+CREATE TABLE propiedad(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	tipo ENUM('casa','apartamento','terreno') NOT NULL,
+	direccion VARCHAR(40) NOT NULL,
+	metros_cuadrados INT NOT NULL,
+	precio INT NOT NULL
+);
+
+CREATE TABLE venta(
+	id INT PRIMARY KEY,
+	IVA INT NOT NULL DEFAULT 22,
+	descuento INT NOT NULL,
+	PrecioTotal INT NOT NULL,
+	id_prop INT NOT NULL,
+	precio INT NOT NULL
+);
